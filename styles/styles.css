@@ -1,0 +1,39 @@
+body {
+    background-color: #f4f4f4;
+    display: flex; /*deixa os elementos flexíveis, permitindo que nós possamos usar alguns comandos de posicionamento dos elementos filhos*/
+    justify-content: center; /*alinha o conteúdo horizontalmente ao centro*/
+    align-items: center; /*alinha o conteúdo verticalmente ao centro*/
+    height: 75vh; /*height é a altura do elemento, quando temos vh significa que estamos dando um tamanho pro elemento que corresponde a uma "porcentagem" da tela -> viewport height*/
+}
+
+#caixa {
+    background-color: #ffffff;
+    width: 350px; /* largura da caixa*/
+    padding: 20px; /*espaço interno da caixa*/
+    margin: 50px auto; /*centraliza a caixa na página*/
+    border: 1px solid #cccccc;
+    border-radius: 10000px; /* bordas arredondadas */
+}
+
+#titulo {
+    color:crimson;
+    text-align: center; /*alinha o título ao centro da caixa*/
+}
+
+#input-tarefa {
+    width: 70%;   /* largura calculada em cima do elemento pai (caixa)*/
+    padding:10px; /*espaço interno do input*/
+    border-radius: 10px;
+    margin: 25px;
+}
+
+#botao-adicionar {
+    padding: 10px;
+    cursor: pointer;
+    border: 10px;
+    border-radius: 10px;
+    margin : 25px;
+    background-color: crimson;
+    color:black;
+    text-align: center;
+}
