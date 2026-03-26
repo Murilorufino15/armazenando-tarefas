@@ -17,9 +17,63 @@ function salvarTarefas() {
 
 // função para mostrar tarefas na tela.
 function mostrarTarefas() {
-    listadeTarefas.innerHTML = ""; // limpa a lista para evitar duplicação.
+    listaTarefas.innerHTML = ""; // limpa a lista para evitar duplicação.
     for(let i = 0; i < tarefas.length; i++) {
         const li = document.createElement("li"); 
         li.innerText = tarefas[i];
+
+        const botaoRemover = document.createElement("button");
+        botaoRemover.innerText = "🗑️";
+        botaoRemover.className = "botao-remover";
+
+        botaoRemover.addEventListener("click", () => {
+            removerTarefa(i);
+        })
+
+        li.appendChild(botaoRemover); // adiciona o botão de remover à tarefa.
+        listaTarefas.appendChild(li); // adiciona a tarefa à lista na tela.
     }
 }
+
+
+function removerTarefa(posicaoTarefa){
+    // splice -> (posicaoInicial, quantidade de itens)
+    tarefas.splice(posicaoTarefa, 1); // remove a tarefa da lista.
+
+    //depois de remover, chamo a função de salvar no localStorage
+    salvarTarefas();
+    mostrarTarefas();
+}
+
+//função para adicionar tarefa.
+function adicionarTarefa() {
+    const valorTarefa = inputTarefa.value;
+    if (valorTarefa === "") {
+        alert ("Digite uma tarefa!");
+        return; //não deixa que a tarefa vazia apareca na tela
+    }
+
+    tarefas.push(valorTarefa); // adiciona a tarefa à lista.
+    inputTarefa.value = ""; // limpa o campo de input.
+
+    salvarTarefas(); // salva a lista atualizada no localStorage.
+    mostrarTarefas(); // atualiza a lista na tela.
+}
+
+// função para carregar tarefas salavas no localStorage
+function carregarTarefas() {
+
+    // pega as tarefas e armazena na variavel 'tarefasSalvas'
+    const tarefasSalvas = localStorage.getItem("tarefas"); 
+
+    // se houver tarefas salvas
+    // então converte a tarefa e mosta na tela.
+    if (tarefasSalvas) {
+        tarefas = JSON.parse(tarefasSalvas); // converte o texto(string) de volta para uma lista.
+
+        mostrarTarefas();
+    }
+}
+
+botaoAdicionar.addEventListener("click", adicionarTarefa);
+carregarTarefas(); // carrega as tarefas salvas quando a página é carregada. 

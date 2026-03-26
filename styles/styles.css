@@ -11,8 +11,8 @@ body {
     width: 350px; /* largura da caixa*/
     padding: 20px; /*espaço interno da caixa*/
     margin: 50px auto; /*centraliza a caixa na página*/
-    border: 1px solid #cccccc;
-    border-radius: 10000px; /* bordas arredondadas */
+    border: 1px solid #cccccc; /*borda da caixa*/
+    border-radius: 50px; /* bordas arredondadas */
 }
 
 #titulo {
@@ -36,4 +36,26 @@ body {
     background-color: crimson;
     color:black;
     text-align: center;
+}
+
+.botao-remover {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: crimson;
+}
+
+li {
+    list-style: none; /*remove o estilo de lista padrão (bolinhas)*/
+    background-color: #eeeeee;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;/*espaço entre os itens da lista*/
+
+    display:flex;
+    justify-content: space-between; /* coloca espaço entre os elementos */
+}
+
+#lista-tarefas {
+    padding: 0;/*remove o padding padrão da lista*/
 }
