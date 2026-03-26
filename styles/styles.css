@@ -59,3 +59,12 @@ li {
 #lista-tarefas {
     padding: 0;/*remove o padding padrão da lista*/
 }
+
+#botao-remover-tudo {
+    border: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color:darkgray;
+    color: black;
+    border-radius: 10px;
+}
